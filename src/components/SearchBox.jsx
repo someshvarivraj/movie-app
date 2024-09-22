@@ -1,10 +1,15 @@
 import React from "react";
 
-const SeachBox = (props) => {
+const SearchBox = (props) => {
   return (
     <div className="flex flex-col justify-center ml-2">
       <label className="input input-bordered flex items-center gap-2">
-        <input type="text" className="grow " placeholder="Search" />
+        <input
+          value={props.movie}
+          onChange={(event) => props.setMovie(event.target.value)}
+          className="grow "
+          placeholder="Search"
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
@@ -22,4 +27,4 @@ const SeachBox = (props) => {
   );
 };
 
-export default SeachBox;
+export default SearchBox;
