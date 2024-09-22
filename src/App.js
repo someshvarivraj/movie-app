@@ -1,10 +1,8 @@
 import "./App.css";
-import MovieCard from "./components/MovieCard";
-import Movie from "./components/MovieCard";
+
 import MoviesTable from "./components/MoviesTable";
 import { useState, useEffect } from "react";
 import useFetchMovies from "./hooks/useFetchMovies";
-import { API_KEY } from "./utils/constants";
 import SearchBox from "./components/SearchBox";
 import HeadingType from "./components/HeadingType";
 import DropDown from "./components/DropDown";
@@ -19,16 +17,22 @@ function App() {
   const { movies, error, loading } = useFetchMovies(searchTerm);
   useEffect(() => {
     if (movies) {
+      console.log("error null hua");
       setMovies(movies);
       setErrorState(null);
     } else {
       setErrorState(error);
+      console.log("movies null hua and error set hua");
     }
   }, [movies]);
   useEffect(() => {
     if (error) {
+      console.log(error);
       setErrorState(error);
-      setMovies([]);
+      setMovies(null);
+      console.log(" same in error useEffect movies null hua and error set hua");
+    } else {
+      console.log("error null he");
     }
   }, [error]);
 
