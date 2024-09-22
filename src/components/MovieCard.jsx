@@ -9,6 +9,7 @@ const MovieCard = (props) => {
   const [movieData, setMovieData] = useState({});
   const [generatedBoxOffice, setGeneratedBoxOffice] = useState(null);
   const [generatedText, setGeneratedText] = useState("");
+  //fetch API
   const getMovieData = async (id) => {
     const data = await FetchApiById(id);
     if (data) {

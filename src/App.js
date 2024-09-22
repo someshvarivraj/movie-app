@@ -12,7 +12,7 @@ import SerachButton from "./components/SearchButton";
 function App() {
   const [searchValue, setSearchValue] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
-  const [errorState, setErrorState] = useState(null); // New error state for reset
+  const [errorState, setErrorState] = useState(null); 
   const [moviess, setMovies] = useState([]);
   const { movies, error, loading } = useFetchMovies(searchTerm);
   useEffect(() => {
