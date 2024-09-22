@@ -5,6 +5,9 @@ import MoviesTable from "./components/MoviesTable";
 import { useState, UseEffect } from "react";
 import UseFetchMovies from "./hooks/useFetchMovies";
 import { API_KEY } from "./utils/constants";
+import SeachBox from "./components/SeachBox";
+import HedingType from "./components/HedingType";
+import DropDown from "./components/DropDown";
 
 function App() {
   const { movies, error, loading } = UseFetchMovies("batman", 2017);
@@ -12,9 +15,20 @@ function App() {
   if (error) return <p> {error} </p>;
 
   return (
-    <div>
-      {/* <MoviesTable MovieProp={<MovieCard />} movies={[]} /> */}
-      <h1>Redy to go</h1>
+    <div className=" flex flex-col">
+      <div className="fixed top-0 right-0 left-0 z-10 flex justify-between m-2 p-2">
+        <div className="flex flex-row justify-between">
+          <HedingType heading="Movies" />
+          <HedingType heading="Favourites" />
+        </div>
+        <div className="flex flex-row justify-between">
+          <DropDown />
+          <SeachBox />
+        </div>
+      </div>
+      <div className="mt-20">
+        <MoviesTable movies={movies} />
+      </div>
     </div>
   );
 }
