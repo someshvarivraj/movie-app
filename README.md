@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Movie App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Movie App is a web application that allows users to search for movies, view detailed information, and save their favorite movies. The app integrates the OMDb API to fetch movie data and includes features like filtering movies by year and managing a list of favorites. The app is deployed on Vercel and available [here](https://movie-app-alpha.vercel.app/).
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Search for movies by title.
+- Filter movies by release year.
+- Save favorite movies to view later. Click 'Favourites' to view favorite movies, and click it again to exit the favorites section.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React.js**: Frontend framework.
+- **Tailwind CSS**: Styling and layout.
+- **DaisyUI**: Used for pre-built, customizable components and responsive design.
+- **OMDb API**: Movie data source.
+- **Vercel**: Hosting and deployment platform.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ensure you have the following installed:
 
-### `npm run build`
+- [Node.js](https://nodejs.org/) 
+- [npm](https://www.npmjs.com/) 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/movie-app.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd movie-app
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Setting Up API Key
 
-### `npm run eject`
+1. Sign up for an API key from the [OMDb API](http://www.omdbapi.com/apikey.aspx).
+2. Create a `.env` file in the root directory of the project:
+   ```bash
+   touch .env
+   ```
+3. Add your API key to the `.env` file:
+   ```bash
+   REACT_APP_OMDB_API_KEY=your-api-key-here
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Running the App
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To start the app locally, run:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The app should now be running at `http://localhost:3000`.
 
-## Learn More
+## Future Enhancements
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **UI Improvements**: Additional filters for genre, country, or language.
+- **Media Integration**: Display trailers or additional movie-related media.
+- **Custom Rating System**: Allow users to rate movies and store ratings within the app.
+- **Sorting Options**: Sort movies based on ratings, release dates, or popularity.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Deployed Version
 
-### Code Splitting
+You can access the live version of the app [here](https://movie-app-alpha.vercel.app/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Let me know if you'd like any changes!
