@@ -22,14 +22,14 @@ function App() {
     );
     if (movieFavourites) {
       const favMap = new Map(movieFavourites);
-      console.log(favMap);
+      // console.log(favMap);
       setFavourites(favMap);
     }
   }, []);
 
   //Favourite Handler
   const toggleFavourites = () => {
-    console.log("clicked");
+    // console.log("clicked");
     setShowFavourites((prev) => !prev);
   };
 
@@ -40,7 +40,7 @@ function App() {
     ? Array.from(favourites.values())
     : movies;
 
-  console.log(displayedMovies);
+  
 
   return (
     <div className=" flex flex-col">

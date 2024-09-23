@@ -19,7 +19,7 @@ export const FetchApi = async (seachValue, year) => {
     // const responseJson = await response.json();
 
     const response = await axios.get(`${BASE_URL}`, { params });
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   } catch (error) {
     //console.log(error);
@@ -41,7 +41,7 @@ export const FetchApiById = async (id) => {
     // const responseJson = await response.json();
 
     const response = await axios.get(`${BASE_URL}`, { params });
-    console.log(response.data);
+    //console.log(response.data);
     return response.data;
   } catch (error) {
     //console.log(error);

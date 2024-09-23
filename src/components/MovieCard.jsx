@@ -22,7 +22,7 @@ const MovieCard = (props) => {
 
       setMovieData(data);
       setError(null);
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       setError("An err occurred while fetching the movie.");
     }
@@ -30,7 +30,7 @@ const MovieCard = (props) => {
   const handleOpenModal = () => {
     setIsModalOpen(true);
     getMovieData(props.movie.imdbID);
-    console.log(true);
+   
   };
 
   const handleCloseModal = () => {
@@ -50,13 +50,13 @@ const MovieCard = (props) => {
 
   // To save fav movie in local storage
   const saveToLocalStorage = (newFavMap) => {
-    console.log("saved");
+    //console.log("saved");
     const favArr = Array.from(newFavMap);
     localStorage.setItem("react-favourite-movies", JSON.stringify(favArr));
   };
 
   const addFavouriteMovie = (movie) => {
-    console.log("addfav");
+    //console.log("addfav");
     const newFavMap = new Map(props.favMap);
     if (!newFavMap.has(movie.imdbID)) {
       newFavMap.set(props.movie.imdbID, movie);
@@ -65,18 +65,18 @@ const MovieCard = (props) => {
     }
   };
   const removeFavouriteMovie = (imdbID) => {
-    console.log("remove");
+    //console.log("remove");
     const newFavMap = new Map(props.favMap);
     if (newFavMap.delete(imdbID)) {
-      console.log("movie with  ${imdbID} has been removed");
+      // console.log("movie with  ${imdbID} has been removed");
     } else {
-      console.log("movieis not found in favourite list");
+      // console.log("movieis not found in favourite list");
     }
     props.setFavMap(newFavMap);
     saveToLocalStorage(newFavMap);
   };
   const handleHeartClicked = async (e) => {
-    console.log("clicked");
+   
     e.stopPropagation();
     if (isHeartFilled || firstTimeHeart) {
       removeFavouriteMovie(props.movie.imdbID);

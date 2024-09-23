@@ -13,6 +13,6 @@ export const generateText = () => {
 export const generateBoxOffice = () => {
   const chance = new Chance();
   const boxOfficeEstimate = chance.integer({ min: 1000000, max: 1000000000 });
-  console.log(boxOfficeEstimate);
+  // console.log(boxOfficeEstimate);
   return boxOfficeEstimate;
 };
