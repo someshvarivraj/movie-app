@@ -62,12 +62,7 @@ npm start
 
 The app should now be running at `http://localhost:3000`.
 
-## Future Enhancements
 
-- **UI Improvements**: Additional filters for genre, country, or language.
-- **Media Integration**: Display trailers or additional movie-related media.
-- **Custom Rating System**: Allow users to rate movies and store ratings within the app.
-- **Sorting Options**: Sort movies based on ratings, release dates, or popularity.
 
 ## Deployed Version
 
