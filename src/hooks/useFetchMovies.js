@@ -11,7 +11,6 @@ const useFetchMovies = (searchTerm, year) => {
         if (!searchTerm) {
           setError("Please Input Movie Name");
           setMovies([]);
-         
         } else {
           //console.log(searchTerm);
           const data = await FetchApi(searchTerm, year);

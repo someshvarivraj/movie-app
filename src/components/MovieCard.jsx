@@ -12,8 +12,8 @@ const MovieCard = (props) => {
   const [generatedBoxOffice, setGeneratedBoxOffice] = useState(null);
   const [generatedText, setGeneratedText] = useState("");
   const [error, setError] = useState(null);
-
-  //dafult poster or image of movie
+  const [isHeartFilled, setIsHeartFilled] = useState(false);
+  const [firstTimeHeart, setFirstTimeHeart] = useState(false);
 
   //fetch API
   const getMovieData = async (id) => {
@@ -36,6 +36,58 @@ const MovieCard = (props) => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+
+  //mark favmovies
+  useEffect(() => {
+    const favMap = props.favMap;
+
+    if (favMap && favMap.has(props.movie.imdbID)) {
+      setFirstTimeHeart(true);
+    } else {
+      setFirstTimeHeart(false);
+    }
+  }, [props.favMap, props.movie.imdbID]);
+
+  // To save fav movie in local storage
+  const saveToLocalStorage = (newFavMap) => {
+    console.log("saved");
+    const favArr = Array.from(newFavMap);
+    localStorage.setItem("react-favourite-movies", JSON.stringify(favArr));
+  };
+
+  const addFavouriteMovie = (movie) => {
+    console.log("addfav");
+    const newFavMap = new Map(props.favMap);
+    if (!newFavMap.has(movie.imdbID)) {
+      newFavMap.set(props.movie.imdbID, movie);
+      props.setFavMap(newFavMap);
+      saveToLocalStorage(newFavMap);
+    }
+  };
+  const removeFavouriteMovie = (imdbID) => {
+    console.log("remove");
+    const newFavMap = new Map(props.favMap);
+    if (newFavMap.delete(imdbID)) {
+      console.log("movie with  ${imdbID} has been removed");
+    } else {
+      console.log("movieis not found in favourite list");
+    }
+    props.setFavMap(newFavMap);
+    saveToLocalStorage(newFavMap);
+  };
+  const handleHeartClicked = async (e) => {
+    console.log("clicked");
+    e.stopPropagation();
+    if (isHeartFilled || firstTimeHeart) {
+      removeFavouriteMovie(props.movie.imdbID);
+      setFirstTimeHeart(false);
+    } else {
+      addFavouriteMovie(props.movie);
+    }
+    setIsHeartFilled(!isHeartFilled);
+  };
+
+  //load moviedata
   useEffect(() => {
     if (movieData && Object.keys(movieData).length > 0) {
       // Only generate BoxOffice if the real data is missing
@@ -81,7 +133,10 @@ const MovieCard = (props) => {
             <input
               type="radio"
               name="rating-3"
-              className="mask mask-heart bg-white"
+              className={`mask mask-heart ${
+                isHeartFilled || firstTimeHeart ? "bg-pink-500" : "bg-white"
+              }`}
+              onClick={handleHeartClicked}
             />
           </div>
         </div>
