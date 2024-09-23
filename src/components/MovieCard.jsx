@@ -111,10 +111,10 @@ const MovieCard = (props) => {
   return (
     <>
       <div
-        className="card lg:card-side bg-gray-900 hover:bg-black shadow-xl w-64 mx-auto rounded-lg"
+        className="sm:w-full align-center card lg:card-side bg-gray-900 transition-shadow transition-transform hover:shadow-slate-500 hover:scale-105 shadow-md w-64 mx-auto rounded-lg cursor-pointer"
         onClick={handleOpenModal}
       >
-        <figure className="w-full h-full">
+        <figure className="lg:max-h-56">
           <img
             src={
               props.movie.Poster && props.movie.Poster !== "N/A"
@@ -125,9 +125,10 @@ const MovieCard = (props) => {
             className="w-full h-full object-cover"
           />
         </figure>
-        <div className="card-body p-2 flex flex-col items-start">
-          <h3 className=" font-semibold">{props.movie.Title}</h3>
+        <div className="card-body p-6 flex flex-col items-start">
+          <h3 className="lg:text-xl font-semibold">{props.movie.Title}</h3>
           <p>{props.movie.Year}</p>
+          <p>{props.movie.plot}</p>
 
           <div className="rating gap-1 w-full  flex flex-row justify-end ">
             <input
