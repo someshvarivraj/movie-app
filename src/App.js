@@ -10,9 +10,10 @@ import Alert from "./components/Alert";
 
 function App() {
   const [searchValue, setSearchValue] = useState("");
+  const [yearValue, setYearValue] = useState(null);
   const [favourites, setFavourites] = useState(new Map());
   const [showFavourites, setShowFavourites] = useState(false);
-  const { movies, error, loading } = useFetchMovies(searchValue);
+  const { movies, error, loading } = useFetchMovies(searchValue, yearValue);
 
   // Getting Faav movies from local storage
   useEffect(() => {
@@ -53,7 +54,7 @@ function App() {
           />
         </div>
         <div className="flex flex-row justify-between">
-          <DropDown />
+          <DropDown setYearValue={setYearValue} />
           <SearchBox movie={searchValue} setMovie={setSearchValue} />
         </div>
       </div>
